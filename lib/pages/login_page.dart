@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_firebase/widgets/my_button.dart';
@@ -8,7 +6,8 @@ import '../widgets/my_text_field.dart';
 import '../widgets/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final Function()? onRegisterTap;
+  const LoginPage({Key? key, required this.onRegisterTap}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -40,28 +39,12 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  void userNotFoundMessage() {
+  void showSignInErrorMessage(String message) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('User not found'),
-        content: const Text('Please check your email and try again.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void wrongPasswordMessage() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Wrong password'),
-        content: const Text('Please check your password and try again.'),
+        title: const Text('Error'),
+        content: Text(message),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -86,12 +69,7 @@ class _LoginPageState extends State<LoginPage> {
       }
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if (e.code == 'user-not-found') {
-        userNotFoundMessage();
-      } else if (e.code == 'wrong-password') {
-        log(e.toString());
-        wrongPasswordMessage();
-      }
+      showSignInErrorMessage(e.message!);
     }
   }
 
@@ -107,8 +85,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
+        child: Center(
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -154,6 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.025),
                 MyButton(
+                  title: 'Sign In',
                   width: MediaQuery.of(context).size.width * 0.8,
                   onPressed: signIn,
                   isDisabled: isButtonDisabled,
@@ -212,8 +191,8 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
-                    TextButton(
-                      onPressed: () {},
+                    GestureDetector(
+                      onTap: widget.onRegisterTap,
                       child: const Text(
                         'Register now',
                         style: TextStyle(
