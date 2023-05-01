@@ -1,6 +1,6 @@
 # Flutter Firebase Authentication Example
 
-This is a simple Flutter app with two pages - a login page and a home page. The app uses Firebase Authentication to allow users to log in and view the home page.
+This is a simple Flutter app with three pages - a login page, a home page, and a registration page. The app uses Firebase Authentication to allow users to log in, register, and view the home page.
 
 ## Getting Started
 
@@ -16,11 +16,12 @@ This will launch the app in your default emulator or on your connected device.
 
 ## About the app
 
-The app consists of two pages:
+The app consists of three pages:
 
 - `LoginPage`: This page allows users to log in using their email address and password. The app uses Firebase Authentication to handle the login process.
+- `RegisterPage`: This page allows users to register for the app using their email address and password. The app uses Firebase Authentication to handle the registration process.
 - `HomePage`: This page displays a welcome message to the user after they have logged in successfully.
 
 ## Conclusion
 
-Building a simple Flutter app with Firebase Authentication is a great way to learn how to integrate Firebase into your apps. By following the steps outlined in the README, you can easily set up Firebase Authentication in your app and create a login page and home page. This project can serve as a foundation for more complex apps that use Firebase for data storage and other features. With Flutter and Firebase, you can quickly develop high-quality mobile apps that are scalable and easy to maintain
+Building a simple Flutter app with Firebase Authentication is a great way to learn how to integrate Firebase into your apps. By following the steps outlined in the README, you can easily set up Firebase Authentication in your app and create a login page, registration page, and home page. This project can serve as a foundation for more complex apps that use Firebase for data storage and other features. With Flutter and Firebase, you can quickly develop high-quality mobile apps that are scalable and easy to maintain.
