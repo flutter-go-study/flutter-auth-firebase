@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final VoidCallback? onPressed;
+  final String title;
   final double width;
   final bool isDisabled;
 
   const MyButton({
     Key? key,
     this.onPressed,
+    required this.title,
     required this.width,
     this.isDisabled = false,
   }) : super(key: key);
@@ -27,9 +29,9 @@ class MyButton extends StatelessWidget {
           elevation: 4,
           shadowColor: Colors.black.withOpacity(0.4),
         ),
-        child: const Text(
-          'Sign In',
-          style: TextStyle(
+        child: Text(
+          title,
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 16,
