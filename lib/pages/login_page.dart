@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_firebase/services/auth_services.dart';
 import 'package:flutter_auth_firebase/widgets/my_button.dart';
 
 import '../widgets/my_text_field.dart';
@@ -174,7 +175,8 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SquareTile(
-                      onTap: () {},
+                      onTap: () async =>
+                          await AuthServices().signInWithGoogle(),
                       imagePath: 'lib/images/google.png',
                     ),
                     const SizedBox(width: 25),
