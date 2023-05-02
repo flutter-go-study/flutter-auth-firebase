@@ -1,6 +1,6 @@
 # Flutter Firebase Authentication Example
 
-This is a simple Flutter app with three pages - a login page, a home page, and a registration page. The app uses Firebase Authentication and the `google_sign_in` package to allow users to log in/register with Google, email address and password, and view the home page.
+This is a simple Flutter app with three pages - a login page, a home page, and a registration page. The app uses Firebase Authentication and the `google_sign_in` and `sign_in_with_apple` packages to allow users to log in/register with Google, Apple or email address and password, and view the home page.
 
 ## Getting Started
 
@@ -18,10 +18,11 @@ This will launch the app in your default emulator or on your connected device.
 
 The app consists of three pages:
 
-- `LoginPage`: This page allows users to log in using their email address and password, or with their Google account. The app uses Firebase Authentication and the `google_sign_in` package to handle the login process.
+- `LoginPage`: This page allows users to log in using their email address and password, or with their Google or Apple account. The app uses Firebase Authentication and the `google_sign_in` and `sign_in_with_apple` packages to handle the login process.
 - `RegisterPage`: This page allows users to register for the app using their email address and password. The app uses Firebase Authentication to handle the registration process.
 - `HomePage`: This page displays a welcome message to the user after they have logged in successfully.
 
 ## Conclusion
 
-Building a simple Flutter app with Firebase Authentication and Google Sign-In is a great way to learn how to integrate Firebase and Google services into your apps. By following the steps outlined in the README, you can easily set up Firebase Authentication and Google Sign-In in your app and create a login page, registration page, and home page. This project can serve as a foundation for more complex apps that use Firebase for data storage and other features. With Flutter, Firebase, and Google services, you can quickly develop high-quality mobile apps that are scalable and easy to maintain.
+Building a simple Flutter app with Firebase Authentication, Google Sign-In and Sign-In with Apple is a great way to learn how to integrate Firebase and Google services into your apps. By following the steps outlined in the README, you can easily set up Firebase Authentication and Sign-In with Apple in your app and create a login page, registration page, and home page. This project can serve as a foundation for more complex apps that use Firebase for data storage and other features. With Flutter, Firebase, and Google services, you can quickly develop high-quality mobile apps that are scalable and easy to maintain.
+
