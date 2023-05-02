@@ -172,12 +172,14 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SquareTile(
+                      onTap: () {},
                       imagePath: 'lib/images/google.png',
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                     SquareTile(
+                      onTap: () {},
                       imagePath: 'lib/images/apple.png',
                     ),
                   ],
