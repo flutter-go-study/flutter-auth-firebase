@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_firebase/services/auth_services.dart';
@@ -179,11 +181,13 @@ class _LoginPageState extends State<LoginPage> {
                           await AuthServices().signInWithGoogle(),
                       imagePath: 'lib/images/google.png',
                     ),
-                    const SizedBox(width: 25),
-                    SquareTile(
-                      onTap: () {},
-                      imagePath: 'lib/images/apple.png',
-                    ),
+                    if (Platform.isIOS) const SizedBox(width: 25),
+                    if (Platform.isIOS)
+                      SquareTile(
+                        onTap: () async =>
+                            await AuthServices().signInWithApple(),
+                        imagePath: 'lib/images/apple.png',
+                      ),
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
